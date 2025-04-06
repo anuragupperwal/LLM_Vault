@@ -1,0 +1,91 @@
+#  LLM Vault
+
+LLM Vault is a secure API access layer for Large Language Model (LLM) services using OAuth 2.0 or JWT-based authentication. It ensures only authorized users can query the model through a FastAPI service deployed on Kubernetes.
+
+---
+
+## Tech Stack
+
+- **FastAPI** – LLM API backend
+- **Keycloak** – Identity Provider (OAuth 2.0)
+- **Envoy** – API Gateway for token validation
+- **Kubernetes** – Container orchestration
+- **Docker** – Containerization
+- **Istio** *(optional)* – Secure service mesh (mTLS)
+
+---
+
+## Running Locally
+
+    1. **Clone the repo**
+
+        ```bash
+        git clone https://github.com/your-username/llm-vault.git
+        cd llm-vault
+
+	2.	Set up virtual environment
+
+        python -m venv llm_vault
+        source llm_vault/bin/activate
+
+
+	3.	Install dependencies
+
+        pip install -r requirements.txt
+
+
+	4.	Run the FastAPI app
+
+        uvicorn app:app --reload
+
+
+⸻
+
+🐳 Docker (Optional)
+
+docker build -t llm-vault .
+docker run -d -p 8000:8000 llm-vault
+
+
+
+⸻
+
+☸️ Kubernetes Deployment
+
+kubectl apply -f deployment.yaml
+kubectl apply -f service.yaml
+
+
+
+⸻
+
+🔐 Authentication
+	•	Set up Keycloak (or Auth0) to issue OAuth 2.0 tokens
+	•	Envoy will validate tokens before routing requests
+	•	Only authorized users can access the LLM service
+
+⸻
+
+📂 Project Structure
+
+.
+├── app.py               # FastAPI app
+├── Dockerfile
+├── requirements.txt
+├── deployment.yaml      # K8s deployment config
+├── service.yaml         # K8s service config
+└── .gitignore
+
+
+
+⸻
+
+📌 TODO
+	•	Integrate Envoy token validation
+	•	Add full Keycloak config
+	•	Deploy to cloud provider (GKE/EKS/etc)
+
+⸻
+
+👥 Contributors
+	•	

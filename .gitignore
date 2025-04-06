@@ -1,49 +1,31 @@
-# Byte-compiled / optimized / DLL files
+# Python virtual environments
+llm_vault/
+
+# Byte-compiled files
 __pycache__/
 *.py[cod]
-*.pyo
-*.pyd
-*.pyc
 
-# Virtual environments
-env/
-venv/
-ENV/
-.venv/
-
-# Editor files
-.vscode/
-.idea/
-*.swp
-
-# Environment files
+# FastAPI & general Python artifacts
+*.log
 .env
 *.env
+*.db
+*.sqlite3
 
 # OS-specific
 .DS_Store
 Thumbs.db
 
-# Log files
-*.log
+# Editor settings
+.vscode/
+.idea/
 
-# Docker-related
+# Docker and Kubernetes
 *.pid
-*.db
-*.sqlite3
+*.tar
+*.lock
+*.bak
 docker-compose.override.yml
 
-# Testing
-.coverage
-htmlcov/
-.pytest_cache/
-nosetests.xml
-coverage.xml
-
-# Jupyter and notebooks
+# Jupyter
 .ipynb_checkpoints/
-
-# Node stuff (if frontend added later)
-node_modules/
-dist/
-build/
