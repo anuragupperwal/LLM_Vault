@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: llm-api
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: llm-api
@@ -13,14 +13,15 @@ spec:
         app: llm-api
     spec:
       containers:
-        - name: llm-api
-          image: your_dockerhub_username/llm-api:v1
-          ports:
-            - containerPort: 8000
-          resources:
-            limits:
-              memory: "2Gi"
-              cpu: "1000m"
-            requests:
-              memory: "1Gi"
-              cpu: "500m"
+      - name: llm-api
+        image: llm-vault-forked
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "250m"
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
